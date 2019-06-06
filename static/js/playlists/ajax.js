@@ -1,4 +1,4 @@
-const API = 'http://localhost/api';
+const API = 'https://travis-ci-heroku.herokuapp.com/';
 const playlistAPI = `${API}/playlists`;
 
 function doAjax(url, method, data, success, error) {

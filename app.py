@@ -1,7 +1,6 @@
 import sys, os
 from flask import Flask, request, jsonify
 from flask_restful import reqparse, Api, Resource
-import MySQLdb as mdb
 import psycopg2
 
 
@@ -31,7 +30,7 @@ class HomeRouter(Resource):
 class PlaylistsRouter(Resource):
 	def get(self, playlist_id=None):
 		try:
-			cur = conn.cursor(mdb.cursors.DictCursor)
+			cur = conn.cursor()
 			if not playlist_id:
 				searchParser = reqparse.RequestParser()
 				searchParser.add_argument('s', type=str, required=False, location='args', help='Search query')
