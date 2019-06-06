@@ -136,7 +136,7 @@ class MusicasRouter(Resource):
 		try:
 			args = musicaParser.parse_args()
 			cur = conn.cursor()
-			cur.execute('INSERT INTO musicas(nome_musica, criador_musica, estilo_musica, id_playlist) VALUES(%s, %s, %s, %s) RETURNING id_music', (args['nome_musica'], args['criador_musica'], args['estilo_musica'], str(playlist_id)))
+			cur.execute('INSERT INTO musicas(nome_musica, criador_musica, estilo_musica, id_playlist) VALUES(%s, %s, %s, %s) RETURNING id_musica', (args['nome_musica'], args['criador_musica'], args['estilo_musica'], str(playlist_id)))
 			args['id_musica'] = cur.fetchone()[0] or -1
 			conn.commit()
 			cur.close()
