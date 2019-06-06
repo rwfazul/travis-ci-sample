@@ -46,8 +46,6 @@ class PlaylistsRouter(Resource):
 			cur.close()
 			return data, 201
 		except Exception as e:
-			cur.execute("ROLLBACK")
-			conn.commit()
 			return {'error': str(e)}, 500
 
 	def delete(self, playlist_id):
@@ -92,7 +90,7 @@ class PlaylistsRouter(Resource):
 class MusicasRouter(Resource):
 	def get(self, playlist_id, musica_id=None):
 		try:
-			cur = conn.cursor(mdb.cursors.DictCursor)
+			cur = conn.cursor(cursor_factory=RealDictCursor)
 			if not musica_id:
 				searchParser = reqparse.RequestParser()
 				searchParser.add_argument('s', type=str, required=False, location='args', help='Search query')
@@ -107,8 +105,6 @@ class MusicasRouter(Resource):
 			cur.close()
 			return data, 201
 		except Exception as e:
-			cur.execute("ROLLBACK")
-			conn.commit()
 			return {'error': str(e)}, 500
 
 	def delete(self, playlist_id, musica_id):

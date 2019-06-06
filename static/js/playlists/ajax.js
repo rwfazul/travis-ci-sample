@@ -1,10 +1,10 @@
-const API = 'https://travis-ci-heroku.herokuapp.com/';
+const API = 'https://travis-ci-heroku.herokuapp.com';
 const playlistAPI = `${API}/playlists`;
 
 function doAjax(url, method, data, success, error) {
 	$.ajax({
 	    url: url,
-		method: method,
+	    method: method,
 	    data: data,
 	    success: success,
 	    error: error
