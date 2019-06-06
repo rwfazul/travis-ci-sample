@@ -80,7 +80,8 @@ class PlaylistsRouter(Resource):
 			args = playlistParser.parse_args()
 			cur = conn.cursor()
 			cur.execute('INSERT INTO playlists(nome_playlist, estilo_playlist, obs_playlist) VALUES(%s, %s, %s) RETURNING id', (args['nome_playlist'], args['estilo_playlist'], args['obs_playlist']))
-			args['id_playlist'] = cur.fetchone()[0] or -1
+			res = cur.fetchone()
+			args['id_playlist'] = res[0] or -1
 			conn.commit()
 			cur.close()
 			return args, 201
@@ -140,8 +141,9 @@ class MusicasRouter(Resource):
 		try:
 			args = musicaParser.parse_args()
 			cur = conn.cursor()
-			cur.execute('INSERT INTO musicas(nome_musica, criador_musica, estilo_musica, id_playlist) VALUES(%s, %s, %s, %s)', (args['nome_musica'], args['criador_musica'], args['estilo_musica'], str(playlist_id)))
-			args['id_musica'] = cur.lastrowid or -1
+			cur.execute('INSERT INTO musicas(nome_musica, criador_musica, estilo_musica, id_playlist) VALUES(%s, %s, %s, %s) RETURNING id', (args['nome_musica'], args['criador_musica'], args['estilo_musica'], str(playlist_id)))
+			res = cur.fetchone()
+			args['id_musica'] = res[0] or -1
 			conn.commit()
 			cur.close()
 			return args, 201
