@@ -73,8 +73,8 @@ class PlaylistsRouter(Resource):
 		try:
 			args = playlistParser.parse_args()
 			cur = conn.cursor()
-			cur.execute('INSERT INTO playlists(nome_playlist, estilo_playlist, obs_playlist) VALUES(%s, %s, %s)', (args['nome_playlist'], args['estilo_playlist'], args['obs_playlist']))
-			args['id_playlist'] = cur.lastrowid or -1
+			cur.execute('INSERT INTO playlists(nome_playlist, estilo_playlist, obs_playlist) VALUES(%s, %s, %s) RETURNING id', (args['nome_playlist'], args['estilo_playlist'], args['obs_playlist']))
+			args['id_playlist'] = cur.fetchone()[0] or -1
 			conn.commit()
 			cur.close()
 			return args, 201
