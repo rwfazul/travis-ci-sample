@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciador de Playlists</title>
+  <link rel="stylesheet" type="text/css" href="static/vendors/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="static/vendors/jquery-toast/css/jquery.toast.min.css" />
+  <link rel="stylesheet" type="text/css" href="static/css/custom.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>Minhas <b><em>playlists</em></b></h2>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="add_new_playlist btn btn-info">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova
+          </button>
+        </div>
+      </div>
+    </div>
+    <table id="tbl-playlists" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Estilo</th>
+          <th>Observações</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>   
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-12 col-md-12">
+              <span id="s_reset_playlists" class="pull-right btn-link s_reset">restaurar</span>
+          </div>
+        </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+          <b>PROCURAR <em>PLAYLIST</em> PELO NOME</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" name="s_nome_playlist" id="s_nome_playlist">
+          <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="s_button_playlist">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal musicas -->
+  <div id="modal-musicas" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <!-- Modal-header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
+        </div>     
+        <!-- Modal-body -->
+        <div class="modal-body">
+          <span class="hidden" id="id_playlist_musicas"></span>
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-8">
+                <h2><span id="modal_playlist_name"></span> | Minhas <b><em>músicas</em></b></h2>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="add_new_musica btn btn-info">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova
+                </button>
+              </div>
+            </div>
+          </div>
+          <table id="tbl-musicas" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Criador</th>
+                <th>Estilo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <span id="s_reset_musicas" class="pull-right btn-link s_reset">restaurar</span>
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-sm-12">
+            <b style="margin-left:15px;">PROCURAR MÚSICA PELO NOME</b>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="col-sm-12 col-md-7">
+          <div class="input-group" style="margin-left:15px;">
+            <input type="text" class="form-control" name="s_nome_musica" id="s_nome_musica">
+            <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" id="s_button_musica">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/vendors/jquery/js/jquery.min.js"></script>
+  <script src="static/vendors/jquery-toast/js/jquery.toast.min.js"></script>
+  <script src="static/vendors/bootstrap/js/bootstrap.min.js"></script>
+  <script src="static/js/playlists/ajax.js"></script>
+  <script src="static/js/playlists/table.js"></script>
+  <script src="static/js/playlists/search.js"></script>
+  <script src="static/js/musicas/ajax.js"></script>
+  <script src="static/js/musicas/table.js"></script>
+  <script src="static/js/musicas/search.js"></script>
+</body>
+</html>                            

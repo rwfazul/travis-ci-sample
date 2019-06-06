@@ -1,0 +1,123 @@
+body {
+    color: #404E67;
+    background: #F5F7FA;
+    font-family: 'Open Sans', sans-serif;
+}
+.table-title h2 {
+    text-transform: uppercase;
+    font-family: 'Ubuntu';
+    font-size: 18px !important;
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 5% 0 10px;
+}
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+.modal-body .table-title {
+    margin: 0% 0 10px !important;
+}
+.table-title .add_new_playlist,
+.table-title .add_new_musica {
+    float: right;
+    height: 30px;
+    font-family: 'Ubuntu';
+    text-transform: uppercase;
+    font-size: 14px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+.table-title .add_new_playlist span,
+.table-title .add_new_musica span {
+    margin-right: 4px;
+}
+table.table {
+    table-layout: fixed;
+}
+table.table th {
+    text-transform: uppercase;
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    text-align: center;
+}
+table.table td {
+    font-size: 15px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table th span {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table th:last-child {
+    width: 150px;
+}
+table.table th:first-child {
+    width: 70px;
+}
+table.table td:first-child,
+table.table td:last-child {
+    text-align: center;
+}
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}    
+table.table td a.add_playlist,
+table.table td a.add_musica {
+    color: #27C46B;
+}
+table.table td a.edit_playlist,
+table.table td a.edit_musica {
+    color: #FFC107;
+}
+table.table td a.delete_playlist,
+table.table td a.delete_musica {
+    color: #E34724;
+}
+.table-title .add_new_playlist:hover,
+.table-title .add_new_musica:hover,
+table.table td a.add_playlist:hover,
+table.table td a.add_musica:hover,
+table.table td a.edit_playlist:hover,
+table.table td a.edit_musica:hover,
+table.table td a.delete_playlist:hover,
+table.table td a.delete_musica:hover {
+    color: #333333;
+}
+table.table td span {
+    font-size: 19px;
+}
+table.table td a.add_playlist span,
+table.table td a.add_musica span {
+    font-size: 21px;
+}    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add_playlist,
+table.table td .add_musica {
+    display: none;
+}
+
+span.s_reset {
+    margin-right: 23px;
+}
+
+span.s_reset:hover {
+   cursor: pointer;
+}
