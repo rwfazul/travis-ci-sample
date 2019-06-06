@@ -2,7 +2,7 @@ import sys, os
 from flask import Flask, request, jsonify
 from flask_restful import reqparse, Api, Resource
 import psycopg2
-from psycopg2.extras import DictCursor
+from psycopg2.extras import RealDictCursor
 
 
 # Flask init
@@ -31,7 +31,7 @@ class HomeRouter(Resource):
 class PlaylistsRouter(Resource):
 	def get(self, playlist_id=None):
 		try:
-			cur = conn.cursor(cursor_factory=DictCursor)
+			cur = conn.cursor(cursor_factory=RealDictCursor)
 			if not playlist_id:
 				searchParser = reqparse.RequestParser()
 				searchParser.add_argument('s', type=str, required=False, location='args', help='Search query')
