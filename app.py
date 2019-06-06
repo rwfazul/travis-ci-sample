@@ -46,6 +46,8 @@ class PlaylistsRouter(Resource):
 			cur.close()
 			return data, 201
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def delete(self, playlist_id):
@@ -56,6 +58,8 @@ class PlaylistsRouter(Resource):
 			cur.close()
 			return 200
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def put(self, playlist_id):
@@ -67,6 +71,8 @@ class PlaylistsRouter(Resource):
 			cur.close()
 			return 200
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def post(self):
@@ -79,6 +85,8 @@ class PlaylistsRouter(Resource):
 			cur.close()
 			return args, 201
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 class MusicasRouter(Resource):
@@ -99,6 +107,8 @@ class MusicasRouter(Resource):
 			cur.close()
 			return data, 201
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def delete(self, playlist_id, musica_id):
@@ -109,6 +119,8 @@ class MusicasRouter(Resource):
 			cur.close()
 			return 200
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def put(self, playlist_id, musica_id):
@@ -120,6 +132,8 @@ class MusicasRouter(Resource):
 			cur.close()
 			return 200
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 	def post(self, playlist_id):
@@ -132,6 +146,8 @@ class MusicasRouter(Resource):
 			cur.close()
 			return args, 201
 		except Exception as e:
+			cur.execute("ROLLBACK")
+			conn.commit()
 			return {'error': str(e)}, 500
 
 # routers 
