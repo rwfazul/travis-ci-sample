@@ -5,6 +5,7 @@
 - Flask application
 - Mock tests of a Flask RESTful API with Python unittest
 - Heroku and Travis CI connected in this GitHub repo 
+- Data stored in PostgreSQL through Heroku Postgres add-on
 - Heroku 'Automatic deploys' enabled (wait for CI to pass before deploy)
 
 - Deployed on Heroku at https://travis-ci-heroku.herokuapp.com/
