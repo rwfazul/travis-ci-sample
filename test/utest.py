@@ -7,7 +7,7 @@ class MockTest(unittest.TestCase):
 		self.musics = mock.gen_musics()
 
 	def test_gen_playlist(self):
-		self.assertIs(len(mock.gen_playlists(10)), 10)
+		self.assertIs(len(mock.gen_playlists(12)), 10)
 
 	def test_gen_musics(self):
 		self.assertIs(len(mock.gen_musics(10)), 10)
